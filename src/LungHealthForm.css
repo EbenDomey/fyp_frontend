@@ -1,0 +1,115 @@
+/* Basic styles for the form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input field styles */
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select,
+#date_of_birth {
+  width: 100%;
+  padding: 16px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Specific styling for select element */
+.form-group select {
+  appearance: none; /* Remove default dropdown styles */
+  /* background-image: url("data:image/svg+xml;base64,phN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlm.="); Add a small arrow icon */
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 30px;
+}
+
+/* Submit button styles */
+button[type="submit"] {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* On hover, add a darker green color */
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style the radio button labels */
+.radio-group label {
+  display: inline;
+  /* gap: 5; */
+  margin-right: 70px;
+}
+
+/* Style the radio buttons */
+.radio-group input[type="radio"] {
+  margin-right: 10px;
+}
+
+.form-body {
+  margin-top: 2%;
+  align-items: center;
+}
+.form-fields {
+  display: block;
+}
+
+.radio-body {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+#fev1-group {
+  /* Target the label associated with the ID */
+  width: 50%;
+  margin: auto;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .radio-group label {
+    display: inline;
+    /* gap: 5; */
+    margin-right: 150px;
+  }
+  .form-fields {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+tr:nth-child(even) {
+  /* --tw-bg-opacity: 4; */
+  background-color: #f9f9f9;
+}
+
+tr {
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  tr {
+    height: 20px;
+  }
+}
