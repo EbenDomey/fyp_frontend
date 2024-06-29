@@ -68,7 +68,7 @@ export default function LungHealthForm() {
 
   return (
     <div className="m-auto w-9/10">
-      <h2 className="text-3xl bg-black text-white p-4 w-full">
+      <h2 className="text-2xl md:text-3xl bg-black text-white p-4 w-full">
         Lung Health Assessment
       </h2>
       <form onSubmit={handleSubmit} className="form-body">
@@ -141,7 +141,7 @@ export default function LungHealthForm() {
           {/* </div> */}
         </div>
         <div className="p-4 ">
-          <h2 className="text-3xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
+          <h2 className="text-2xl md:text-3xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
             Spirometry Measurements
           </h2>
           <div className="md:grid grid-cols-4">
@@ -182,7 +182,7 @@ export default function LungHealthForm() {
             />
           </div>
         </div>
-        <div className="m-4 text-xs md:text-xl">
+        <div className="m-4 text-sm md:text-xl">
           <h2 className="text-3xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
             Patient History
           </h2>
