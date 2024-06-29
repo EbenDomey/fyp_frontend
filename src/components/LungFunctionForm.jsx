@@ -3,7 +3,7 @@ import React from "react";
 
 export const LungFunctionForm = (props) => {
   return (
-    <div className="form-group w-full md:w-1/3">
+    <div className="form-group w-full md:w-3/4 lg:w-40">
       <label htmlFor={props.id}>{props.name}:</label>
       <div className="inline-flex w-full">
         <input
@@ -35,7 +35,7 @@ LungFunctionForm.propTypes = {
 
 export const DisabledLungFunctionForm = (props) => {
   return (
-    <div className="md:pl-4 form-group w-full md:w-1/3">
+    <div className="md:pl-4 form-group w-full md:w-3/4 lg:w-40">
       <label htmlFor={props.id}>{props.name}:</label>
       <div className="inline-flex w-full">
         <input

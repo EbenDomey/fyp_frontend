@@ -67,7 +67,7 @@ export default function LungHealthForm() {
   };
 
   return (
-    <div className="m-auto w-9/10 ">
+    <div className="m-auto w-9/10">
       <h2 className="text-3xl bg-black text-white p-4 w-full">
         Lung Health Assessment
       </h2>
@@ -77,7 +77,7 @@ export default function LungHealthForm() {
         </h2>
         <div className="form-fields p-4">
           <div className="md:inline-flex">
-            <div className="form-group w-full md:w-2/4 pr-4">
+            <div className="form-group w-full md:w-2/3 lg:w-40 md:mr-2">
               <label htmlFor="date_of_birth">Date of Birth:</label>
               <input
                 type="date"
@@ -89,7 +89,7 @@ export default function LungHealthForm() {
                 required
               />
             </div>
-            <div className="form-group w-full md:w-1/4">
+            <div className="form-group w-full md:w-1/3 lg:w-16">
               <label htmlFor="age">Age:</label>
               <input
                 type="number"
@@ -104,7 +104,7 @@ export default function LungHealthForm() {
               />
             </div>
           </div>
-          <div className="form-group md:ml-20 md:w-2/4">
+          <div className="form-group md:ml-10 md:w-2/4 lg:w-40">
             <label htmlFor="gender">Gender:</label>
             <select
               id="gender"
@@ -534,7 +534,9 @@ export default function LungHealthForm() {
             </div>
           </div>
         </div>
-        <button type="submit">Submit Form</button>
+        <button type="submit" className="form_submit">
+          Submit Form
+        </button>
       </form>
     </div>
   );

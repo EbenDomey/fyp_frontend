@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 // import { IcdCodesTables } from "./components/DiagnosticResultsPage/IcdCodesTable";
@@ -12,6 +12,7 @@ import { Recommendation } from "./components/DiagnosticResultsPage/Recommendatio
 
 export default function DiagnosticResultsPage() {
   const location = useLocation();
+  const navigate = useNavigate();
   // const formData = location.state.formData || {};
   const [formData, setFormData] = useState({});
   const [displaySuccess, setDisplaySuccess] = useState(false);
@@ -44,13 +45,13 @@ export default function DiagnosticResultsPage() {
     event.preventDefault();
     console.log("Form data with predictions submitted:", formData);
     try {
-      const response = await axios.post(`/store/${response.id}`, formData, {
+      const newResponse = await axios.post(`/store/${response.id}`, formData, {
         headers: { "Content-Type": "application/json" },
       });
-      // const resStatus = response.
-      const modelResults = response.data;
+      const modelResults = newResponse.data;
       modelResults ? setDisplaySuccess(true) : setDisplaySuccess(false);
-      console.log("Response data:", response.data);
+      console.log("Response data:", newResponse.data);
+      navigate("/");
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -89,7 +90,7 @@ export default function DiagnosticResultsPage() {
                     />
                   )}
 
-                  <p className="align-middle m-auto">
+                  <p className="align-middle m-auto text-sm md:text-xl lg:text-2xl">
                     <p className="">Based on the provided information:</p>
                     Asthma condition{" "}
                     <strong>
@@ -98,7 +99,9 @@ export default function DiagnosticResultsPage() {
                     </strong>{" "}
                     detected <br />
                     The likelyhood of{" "}
-                    {response.result.includes("asthmatic") ? "" : "no"} asthma
+                    <strong>
+                      {response.result.includes("asthmatic") ? "" : "no"} asthma{" "}
+                    </strong>
                     is suspected to be{" "}
                     <strong>
                       {response.result.includes("asthmatic")
@@ -109,7 +112,7 @@ export default function DiagnosticResultsPage() {
                   </p>
                 </div>
                 {response.result.includes("asthmatic") && (
-                  <p className="text-xl p-4">
+                  <p className="text-sm md:text-xl p-4">
                     The Asthma condition is suspected to have a severity of{" "}
                     <strong>
                       {response.severity} ({respExp[response.severity]})
@@ -119,18 +122,6 @@ export default function DiagnosticResultsPage() {
                   </p>
                 )}{" "}
               </div>
-              {/* <>
-                <div className="pb-8">
-                  <h2 className="flex justify-between text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
-                    ICD Interpretation
-                    <FontAwesomeIcon icon={faCaretDown} />
-                  </h2>
-                  <p className="text-xs md:text-xl pb-8">
-                    ICD-10 Code for Asthma Condition : <strong>J45</strong>
-                  </p>
-                  {/* <IcdCodesTables /> */}
-              {/* </div> */}
-              {/* // </>  */}
               <>
                 <h2 className="text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
                   Model Decision
@@ -139,7 +130,7 @@ export default function DiagnosticResultsPage() {
                 <div className="md:grid grid-cols-2 md:gap-96">
                   <div>
                     <div className="md:w-full">
-                      <p className="text-xs md:text-xl font-bold text-center">
+                      <p className="text-sm font-bold text-center">
                         Severity Probability Distribution Graph
                       </p>
                       <HorizontalBarChart
@@ -152,8 +143,8 @@ export default function DiagnosticResultsPage() {
                       />
                     </div>
                   </div>
-                  <div className="w-3/4 md:w-2/4 mt-8">
-                    <p className="text-xs md:text-xl font-bold text-center">
+                  <div className="w-3/4 md:w-2/4 lg:w-200 mt-8">
+                    <p className="text-sm font-bold text-center">
                       Probability Distribution Graph
                     </p>
                     <PieChart data={pieData} />
@@ -173,10 +164,15 @@ export default function DiagnosticResultsPage() {
                   <p>{displaySuccess ? "Response Saved successsfully" : ""}</p>
                   <form
                     onSubmit={handleSubmit}
-                    className="form-body flex justify-even"
+                    className="form-body md:flex justify-even"
                   >
                     <div className="form-group md:ml-20 md:w-48">
-                      <label htmlFor="actual_result">Actual Result</label>
+                      <label
+                        htmlFor="actual_result"
+                        className="text-sm md:text-xl"
+                      >
+                        Actual Result
+                      </label>
                       <select
                         id="actual_value"
                         name="actual_value"
@@ -190,7 +186,12 @@ export default function DiagnosticResultsPage() {
                       </select>
                     </div>
                     <div className="form-group md:ml-20 md:w-48">
-                      <label htmlFor="actual_severity">Actual severity</label>
+                      <label
+                        htmlFor="actual_severity"
+                        className="text-sm md:text-xl"
+                      >
+                        Actual severity
+                      </label>
                       <select
                         id="actual_severity"
                         name="actual_severity"
@@ -205,7 +206,9 @@ export default function DiagnosticResultsPage() {
                         <option value="normal">No asthma</option>
                       </select>
                     </div>
-                    {/* <button type="submit">Submit Form</button> */}
+                    <button type="submit" className="results_submit">
+                      Submit
+                    </button>
                   </form>
                 </div>
               </>
