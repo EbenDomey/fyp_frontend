@@ -182,7 +182,7 @@ export default function LungHealthForm() {
             />
           </div>
         </div>
-        <div className="m-4 text-sm md:text-xl">
+        <div className="m-4 text-xl">
           <h2 className="text-3xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
             Patient History
           </h2>

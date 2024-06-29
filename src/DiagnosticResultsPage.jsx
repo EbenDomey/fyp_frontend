@@ -90,7 +90,7 @@ export default function DiagnosticResultsPage() {
                     />
                   )}
 
-                  <p className="align-middle m-auto text-sm md:text-xl lg:text-2xl">
+                  <p className="align-middle m-auto text-xl lg:text-2xl">
                     <p className="">Based on the provided information:</p>
                     Asthma condition{" "}
                     <strong>
@@ -112,7 +112,7 @@ export default function DiagnosticResultsPage() {
                   </p>
                 </div>
                 {response.result.includes("asthmatic") && (
-                  <p className="text-sm md:text-xl p-4">
+                  <p className="text-xl p-4">
                     The Asthma condition is suspected to have a severity of{" "}
                     <strong>
                       {response.severity} ({respExp[response.severity]})
@@ -167,10 +167,7 @@ export default function DiagnosticResultsPage() {
                     className="form-body md:flex justify-even"
                   >
                     <div className="form-group md:ml-20 md:w-48">
-                      <label
-                        htmlFor="actual_result"
-                        className="text-sm md:text-xl"
-                      >
+                      <label htmlFor="actual_result" className="text-xl">
                         Actual Result
                       </label>
                       <select
@@ -186,10 +183,7 @@ export default function DiagnosticResultsPage() {
                       </select>
                     </div>
                     <div className="form-group md:ml-20 md:w-48">
-                      <label
-                        htmlFor="actual_severity"
-                        className="text-sm md:text-xl"
-                      >
+                      <label htmlFor="actual_severity" className="text-xl">
                         Actual severity
                       </label>
                       <select
