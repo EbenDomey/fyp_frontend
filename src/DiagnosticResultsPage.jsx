@@ -9,6 +9,7 @@ import {
   PieChart,
 } from "./components/DiagnosticResultsPage/Charts";
 import { Recommendation } from "./components/DiagnosticResultsPage/Recommendation";
+import { Loader } from "./components/Loader";
 
 export default function DiagnosticResultsPage() {
   const location = useLocation();
@@ -16,6 +17,7 @@ export default function DiagnosticResultsPage() {
   // const formData = location.state.formData || {};
   const [formData, setFormData] = useState({});
   const [displaySuccess, setDisplaySuccess] = useState(false);
+  const [isDataLoading, setIsDataLoading] = useState(false);
   const response = location.state.modelResults || {};
 
   const pieData = [
@@ -45,10 +47,12 @@ export default function DiagnosticResultsPage() {
     event.preventDefault();
     console.log("Form data with predictions submitted:", formData);
     try {
+      setIsDataLoading(true);
       const newResponse = await axios.post(`/store/${response.id}`, formData, {
         headers: { "Content-Type": "application/json" },
       });
       const modelResults = newResponse.data;
+      setIsDataLoading(false);
       modelResults ? setDisplaySuccess(true) : setDisplaySuccess(false);
       console.log("Response data:", newResponse.data);
       navigate("/");
@@ -200,8 +204,12 @@ export default function DiagnosticResultsPage() {
                         <option value="normal">No asthma</option>
                       </select>
                     </div>
-                    <button type="submit" className="results_submit">
+                    <button
+                      type="submit"
+                      className="results_submit inline-flex justify-center"
+                    >
                       Submit
+                      {isDataLoading ? <Loader /> : ""}
                     </button>
                   </form>
                 </div>

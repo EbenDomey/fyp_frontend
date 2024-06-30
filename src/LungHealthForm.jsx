@@ -8,7 +8,7 @@ import {
   LungFunctionForm,
 } from "./components/LungFunctionForm";
 import { defineFvcFev1 } from "./formulas";
-
+import { Loader } from "./components/Loader";
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 const TODAYS_DATE = new Date()
@@ -19,6 +19,8 @@ const TODAYS_DATE = new Date()
 
 export default function LungHealthForm() {
   const [formData, setFormData] = useState({});
+  const [isDataLoading, setIsDataLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleDatechange = (event) => {
@@ -54,11 +56,12 @@ export default function LungHealthForm() {
     event.preventDefault();
     console.log("Form data submitted:", formData);
     try {
+      setIsDataLoading(true);
       const response = await axios.post("/diagnose", formData, {
         headers: { "Content-Type": "application/json" },
       });
       const modelResults = response.data;
-
+      setIsDataLoading(false);
       console.log("Response data:", response.data);
       navigate("/results", { state: { formData, modelResults } });
     } catch (error) {
@@ -534,8 +537,12 @@ export default function LungHealthForm() {
             </div>
           </div>
         </div>
-        <button type="submit" className="form_submit">
+        <button
+          type="submit"
+          className="form_submit inline-flex justify-center"
+        >
           Submit Form
+          {isDataLoading ? <Loader /> : ""}
         </button>
       </form>
     </div>
