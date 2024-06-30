@@ -123,11 +123,11 @@ export default function DiagnosticResultsPage() {
                 )}{" "}
               </div>
               <>
-                <h2 className="text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
+                <h2 className="hidden md:block text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
                   Model Decision
                 </h2>
 
-                <div className="md:grid grid-cols-2 md:gap-96">
+                <div className="hidden md:grid grid-cols-2 md:gap-96">
                   <div>
                     <div className="md:w-full">
                       <p className="text-sm font-bold text-center">
