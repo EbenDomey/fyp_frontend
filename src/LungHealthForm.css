@@ -37,7 +37,7 @@
 }
 
 .form_submit {
-  background-color: #000000; /* Green */
+  background-color: #1e3a8a; /* Green */
   border: none;
   color: white;
   width: 100%;
@@ -54,7 +54,7 @@
 }
 
 .results_submit {
-  background-color: #000000; /* Green */
+  background-color: #2962b6; /* Green */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -69,7 +69,7 @@
 }
 
 button[type="submit"]:hover {
-  background-color: #1c1b1b;
+  background-color: #1b357c;
 }
 
 .radio-group label {
@@ -114,24 +114,5 @@ button[type="submit"]:hover {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
-  }
-}
-
-tr:nth-child(even) {
-  /* --tw-bg-opacity: 4; */
-  background-color: #f9f9f9;
-}
-
-tr {
-  height: 50px;
-}
-
-@media (max-width: 768px) {
-  tr {
-    height: 20px;
-  }
-  .results_submit {
-    width: 100%;
-    margin-left: 1px;
   }
 }

@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+/* .formPage {
+  color: blue-900;
+} */
 
 .App-logo {
   height: 40vmin;
@@ -34,5 +37,36 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+.table-class table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-class th,
+td {
+  padding: 12px;
+  text-align: left;
+  font-weight: normal;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+tr:nth-child(odd) {
+  /* --tw-bg-opacity: 4; */
+  background-color: #1c34ec16;
+}
+
+.table-class tr {
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .table-class tr {
+    height: 20px;
+  }
+  .results_submit {
+    width: 100%;
+    margin-left: 1px;
   }
 }

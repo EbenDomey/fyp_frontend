@@ -7,9 +7,10 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import {
   HorizontalBarChart,
   PieChart,
-} from "./components/DiagnosticResultsPage/Charts";
-import { Recommendation } from "./components/DiagnosticResultsPage/Recommendation";
-import { Loader } from "./components/Loader";
+} from "../../components/DiagnosticResultsPage/Charts";
+import { Recommendation } from "../../components/DiagnosticResultsPage/Recommendation";
+import { Loader } from "../../components/Loader";
+import Layout from "../../Layout";
 
 export default function DiagnosticResultsPage() {
   const location = useLocation();
@@ -62,9 +63,9 @@ export default function DiagnosticResultsPage() {
   };
 
   return (
-    <>
+    <Layout>
       <div className="results-container">
-        <h2 className="text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
+        <h2 className="text-2xl p-4 border-2 border-white border-b-blue-900 rounded-md mb-4">
           Primary Diagnosis
         </h2>
         <div className="">
@@ -127,11 +128,11 @@ export default function DiagnosticResultsPage() {
                 )}{" "}
               </div>
               <>
-                <h2 className="hidden md:block text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
+                <h2 className="hidden md:block text-2xl p-4 border-2 border-white border-b-blue-900 rounded-md mb-4">
                   Model Decision
                 </h2>
 
-                <div className="hidden md:grid grid-cols-2 md:gap-96">
+                <div className="hidden md:grid grid-cols-2 md:gap-36 items-center justify-center">
                   <div>
                     <div className="md:w-full">
                       <p className="text-sm font-bold text-center">
@@ -147,7 +148,7 @@ export default function DiagnosticResultsPage() {
                       />
                     </div>
                   </div>
-                  <div className="w-3/4 md:w-2/4 lg:w-200 mt-8">
+                  <div className="w-3/4 md:w-full lg:w-200">
                     <p className="text-sm font-bold text-center">
                       Probability Distribution Graph
                     </p>
@@ -162,7 +163,7 @@ export default function DiagnosticResultsPage() {
                   )}
                 </div>
                 <div>
-                  <h2 className="text-2xl p-4 border-2 border-white border-b-gray-500 rounded-md mb-4">
+                  <h2 className="text-2xl p-4 border-2 border-white border-b-blue-900 rounded-md mb-4">
                     Actual Values
                   </h2>
                   <p>{displaySuccess ? "Response Saved successsfully" : ""}</p>
@@ -206,7 +207,7 @@ export default function DiagnosticResultsPage() {
                     </div>
                     <button
                       type="submit"
-                      className="results_submit inline-flex justify-center"
+                      className="results_submit inline-flex justify-center hover:bg-[#1e3a8a]"
                     >
                       Submit
                       {isDataLoading ? <Loader /> : ""}
@@ -218,6 +219,6 @@ export default function DiagnosticResultsPage() {
           )}
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

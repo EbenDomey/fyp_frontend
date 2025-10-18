@@ -1,6 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-custom-gradient-to-right {
+    background: linear-gradient(
+      to bottom right,
+      #3ca2fb 6%,
+      #1e3a8a 89%,
+      #2962b6 49%
+    );
+  }
+}
 body {
   margin: 0;
   padding: 20px;

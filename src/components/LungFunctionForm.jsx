@@ -15,7 +15,7 @@ export const LungFunctionForm = (props) => {
           onChange={props.onHandleChange}
           required
         />
-        <span className="bg-black text-white font-bold p-4 rounded-r-md -ml-4">
+        <span className="bg-blue-900 text-white font-bold p-4 rounded-r-md -ml-4">
           {props.unit}
         </span>
       </div>
@@ -46,7 +46,7 @@ export const DisabledLungFunctionForm = (props) => {
           value={props.value}
           disabled
         />
-        <span className="bg-black text-white font-bold p-4 rounded-r-md -ml-4">
+        <span className="bg-blue-900 text-white font-bold p-4 rounded-r-md -ml-4">
           {props.unit}
         </span>
       </div>
